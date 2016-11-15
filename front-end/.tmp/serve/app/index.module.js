@@ -54,17 +54,17 @@
 
 	var _main = __webpack_require__(4);
 
-	var _githubContributor = __webpack_require__(5);
+	var _auth = __webpack_require__(5);
 
-	var _webDevTec = __webpack_require__(6);
+	var _githubContributor = __webpack_require__(6);
 
-	var _navbar = __webpack_require__(7);
+	var _webDevTec = __webpack_require__(7);
 
-	var _malarkey = __webpack_require__(8);
+	var _navbar = __webpack_require__(8);
 
-	/* global malarkey:false, moment:false */
+	var _malarkey = __webpack_require__(9);
 
-	angular.module('appFrontend', ['ui.router', 'ui.bootstrap', 'toastr']).constant('malarkey', malarkey).constant('moment', moment).config(_index.config).config(_index2.routerConfig).run(_index3.runBlock).service('githubContributor', _githubContributor.GithubContributorService).service('webDevTec', _webDevTec.WebDevTecService).controller('MainController', _main.MainController).directive('acmeNavbar', _navbar.NavbarDirective).directive('acmeMalarkey', _malarkey.MalarkeyDirective);
+	angular.module('appFrontend', ['ui.router', 'ui.bootstrap', 'toastr']).constant('malarkey', malarkey).constant('moment', moment).config(_index.config).config(_index2.routerConfig).run(_index3.runBlock).service('githubContributor', _githubContributor.GithubContributorService).service('webDevTec', _webDevTec.WebDevTecService).controller('MainController', _main.MainController).controller('AuthController', _auth.AuthController).directive('acmeNavbar', _navbar.NavbarDirective).directive('acmeMalarkey', _malarkey.MalarkeyDirective); /* global malarkey:false, moment:false */
 
 /***/ },
 /* 1 */
@@ -111,6 +111,12 @@
 	    controller: 'MainController',
 	    //anycontroller we want to bind we bind through main
 	    controllerAs: 'main'
+	  }).state('auth', {
+	    url: '/auth',
+	    templateUrl: 'app/auth/auth.html',
+	    controller: 'AuthController',
+	    //any controller we want to bind we bind through auth
+	    controllerAs: 'auth'
 	  });
 
 	  $urlRouterProvider.otherwise('/');
@@ -188,6 +194,22 @@
 /* 5 */
 /***/ function(module, exports) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var AuthController = exports.AuthController = function AuthController() {
+		_classCallCheck(this, AuthController);
+	};
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -229,7 +251,7 @@
 	}();
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -312,7 +334,7 @@
 	}();
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -353,7 +375,7 @@
 	NavbarController.$inject = ["moment"];
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
 	'use strict';

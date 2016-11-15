@@ -7,6 +7,13 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controller: 'MainController',
       //anycontroller we want to bind we bind through main
       controllerAs: 'main'
+    })
+    .state('auth', {
+      url: '/auth',
+      templateUrl: 'app/auth/auth.html',
+      controller: 'AuthController',
+      //any controller we want to bind we bind through auth
+      controllerAs: 'auth'
     });
 
   $urlRouterProvider.otherwise('/');
