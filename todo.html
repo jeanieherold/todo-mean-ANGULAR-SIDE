@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myOrganizer</title>
+    <!-- Add Google Fonts here if you need them -->
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css" media="screen">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="css/ng-styles.css" media="screen">
+</head>
+<!--ng app directive = parameter-->
+<body onload="initialize()" ng-app="myTodoApp">
+	<!-- ================================= 
+	 				HEADER
+	==================================== -->
+	
+	<header>
+		<!-- ================================= 
+		 				LOGO/MAIN NAV
+		==================================== -->
+		<div id="logo">
+			<h1>my Organizer</h1>
+		</div>
+
+		<nav>
+	        <ul>
+	          <li id="login"><a href="#">Login</a></li>
+	        </ul>
+     </nav>
+
+	</header>
+
+	<div id="wrapper">
+		<div><h1 id="title" class="center">Things To Do</h1>
+		</div>
+
+		<div id="geoWrapper">
+
+	      	<!-- ToDo Marker Map -->
+	      	<section id="task-map" class="col primary-task">
+		      	<div id="geo-local-title" class="clearfix"><h4>ToDo Map</h4></div>
+		      	<div id="map"></div>
+	      	</section><!-- end task map section -->
+			
+			<!-- ToDo Task Input and List -->
+			<section id="task-list" class="col secondary-task" ng-controller="mainCtrl">
+				<div id="marker-wrap">
+					<!--task input-->
+					<label id="todo-label" class="col primary"><h4>Task Street Address:</h4></label>
+
+					<input id="task-value" class="col secondary editing-label" type="textbox" value="Enter Address"/>
+
+					<label id="marker-label" class="col primary clearfix"><h4>Task Zip Code:</h4></label>
+					<input class="col secondary" id="address" type="textbox" value="40222">
+					
+					<button id="set-marker" class="clearfix" onclick="codeAddress()">Set Map Marker</button>
+				
+				</div>
+
+				<!-- list of todos -->
+				<div id="dynamic-list-wrap"class="clearfix">
+					<h2>My ToDo List</h2>
+					
+					<ul id="dynamic-list">
+						<li></li>
+					</ul>
+					<div ng-repeat="task in todos" ng-class="{'edited': task.edited}">
+						<!--ng-class- when we are editng the class editing-item will be applied-->
+						<div id="ng-todo-list" class="list">
+							<!-- bind completed to the check boc using ng-model-->
+							<input ng-model="task.completed" type="checkbox"/>
+							<!--bind the task name to the label-->
+							<label ng-hide="editing" class="editing-label">{{task.name}}</label>
+							<!--bind the val in this input to an obj in the scope
+							.name will give the obj a property-->
+							<input id="task-edit" ng-class="{'editing-item': editing}" ng-blur="editing=false;" ng-show="editing" ng-model="task.name" ng-change="task.edited=true" type="text"/>
+
+						</div><!--end list-->
+
+						<div id="ng-btn-group" class="actions">
+							<button id="edit" class="ng-btn" ng-click="editing = !editing">edit</button>
+							<button id="save" class="ng-btn" ng-click="">save</button>
+							<button id="delete" class="ng-btn delete" ng-click="">delete</button>
+						</div><!--end actions-->
+						
+						<div class="clearfix"></div>
+						
+					</div><!--end ng-repeat-->
+					{{todos}}
+
+				</div>
+			</section><!-- end task-list section -->
+
+			<div class="clearfix"></div>
+	      	
+
+
+		</div><!--end geoWrapper div-->
+
+	</div><!--end wrapper div-->
+
+	<!-- ================================= 
+					FOOTER
+	==================================== -->	
+	<footer>&copy; 2016 Jeanie Herold</footer>
+
+
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU_k1kDjGObhnpmTi457k1Wh11kvtIWqs"
+async defer>
+</script>
+<script src="vendor/angular.js" type="text/javascript"></script>
+<script src="js/app.js"></script>
+<script src="js/geo.js"></script>
+</body>
+</html>

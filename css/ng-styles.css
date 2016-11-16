@@ -1,0 +1,51 @@
+/*  ANGULAR STYLES  */
+
+.ng-btn {
+	font-size: 0.7em;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	padding: 3px 5px;
+}
+
+#save {
+	background: green;
+}
+
+#delete {
+	background: red;
+}
+
+.editing-item {
+	background-color: #ffffe6;
+}
+
+.edited label:after {
+	content: " edited";
+	color: #e0e0eb;
+	font-size: 0.7em;
+	padding-left: 5px;
+	text-transform: uppercase;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 768px) {
+
+	.ng-btn {
+		font-size: 0.7em;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+  #ng-btn-group {
+  	float: right;
+		display: inline;
+  }
+
+	#ng-todo-list {
+		display: inline;
+	}
+
+}

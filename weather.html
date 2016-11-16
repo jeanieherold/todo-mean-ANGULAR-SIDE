@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myOrganizer</title>
+    <!-- Add Google Fonts here if you need them -->
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css" media="screen">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+<body>
+	<!-- ================================= 
+	 				HEADER
+	==================================== -->
+	
+	<header>
+		<!-- ================================= 
+		 				LOGO/MAIN NAV
+		==================================== -->
+		<div id="logo">
+			<h1>my Organizer</h1>
+		</div>
+		<nav>
+	        <ul>
+	          <li><a href="todos.html">myToDos</a></li>
+	          <li><a href="weather.html" class="selected">myWeather</a></li>
+	        </ul>
+      </nav>
+
+	</header>
+
+	<!-- ================================= 
+				Log-in
+	==================================== -->
+
+	<div class="clearfix"><a href="#"><p id="login">Login</p></a></div>
+	
+	<!-- ================================= 
+				PAGE CONTENT
+	==================================== -->
+	<div id="wrapper">
+		<div><h1 id="title" class="center">my Weather</h1>
+		</div>
+
+		<div id="weather">
+			
+	        <div id="location">
+		        <div class="col primary"><input id="city" type="text" placeholder="Enter City or ZIP code"></div>
+		        <div class="col secondary"><input id="state" type="text" placeholder="Enter State"></div>
+
+		        <button class="clearfix" type="click" id="getWeather">Go</button>
+		    </div>
+
+
+	      	<div id="local-weather-title" class="clearfix"><h4>My Local Weather:</h4></div>
+	      	
+	      	<!-- info pulled from weather API -->
+	      	<div id="weather-info" class="clearfix">
+	      	</div><!--end map div-->
+
+		</div><!--end weather div-->
+
+	</div><!--end wrapper div-->
+	
+	<!-- ================================= 
+					FOOTER
+	==================================== -->	
+	<footer>&copy; 2016 Jeanie Herold</footer>
+
+	<!-- ================================= 
+					SCRIPTS
+	==================================== -->
+
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<!-- Add Plugin js Files here if you need them -->
+	<script src="js/myToDos.js"></script>
+	<script src="js/weather.js"></script>
+	<script src="js/geo.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
