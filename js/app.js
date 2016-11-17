@@ -6,7 +6,7 @@ angular.module("myTodoApp", [])
 
 	$scope.addTodo = function() {
 		var todo = {name: "New Todo"};
-		$scope.todos.push(todo);
+		$scope.todos.unshift(todo);
 	};
 
 	//display the current collection of tasks items on the page

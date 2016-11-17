@@ -27,6 +27,11 @@
 	text-transform: uppercase;
 }
 
+.completed {
+	color: #e0e0eb;
+	text-decoration: line-through;
+}
+
 /* ================================= 
   Media Queries
 ==================================== */

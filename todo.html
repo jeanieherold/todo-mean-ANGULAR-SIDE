@@ -68,7 +68,8 @@
 					<div id="add-task"><h4><a href="" ng-click="addTodo()"><span><i class="fa fa-plus-square" aria-hidden="true"></i></span></a> add a task</h4></div>
 					
 					<!-- list collection of tasks-->
-					<div ng-repeat="task in todos" ng-class="{'edited': task.edited}">
+					<!--ng-init to be used with ng-init - give initial value to a property-->
+					<div ng-repeat="task in todos | orderBy: 'completed'" ng-init="task.completed=false" ng-class="{'edited': task.edited}">
 						
 						<!-- tasks list-->
 						<!--ng-class- when we are editng the class editing-item will be applied-->
@@ -76,10 +77,10 @@
 							<!-- bind completed to the check boc using ng-model-->
 							<input ng-model="task.completed" type="checkbox"/>
 							<!--bind the task name to the label-->
-							<label ng-hide="editing" class="editing-label">{{task.name}}</label>
+							<label ng-hide="editing" ng-class="{'completed': task.completed}" class="editing-label">{{task.name}}</label>
 							<!--bind the val in this input to an obj in the scope
 							.name will give the obj a property-->
-							<input id="task-edit" ng-class="{'editing-item': editing}" ng-blur="editing=false;" ng-show="editing" ng-model="task.name" ng-change="task.edited=true" type="text"/>
+							<input id="task-edit" ng-class="{'editing-item': editing, 'completed': task.completed}" ng-blur="editing=false;" ng-show="editing" ng-model="task.name" ng-change="task.edited=true" type="text"/>
 
 						</div><!--end list-->
 
