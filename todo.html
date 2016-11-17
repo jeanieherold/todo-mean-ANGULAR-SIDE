@@ -6,6 +6,8 @@
     <title>myOrganizer</title>
     <!-- Add Google Fonts here if you need them -->
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <script src="https://use.fontawesome.com/f78da8f1d5.js"></script>
+    <!--css styles -->
     <link rel="stylesheet" href="css/normalize.css" media="screen">
     <link rel="stylesheet" href="css/style.css" media="screen">
     <link rel="stylesheet" href="css/ng-styles.css" media="screen">
@@ -59,14 +61,16 @@
 				
 				</div>
 
-				<!-- list of todos -->
+				<!-- My ToDo List Section -->
 				<div id="dynamic-list-wrap"class="clearfix">
 					<h2>My ToDo List</h2>
+					<!-- add a new task-->
+					<div id="add-task"><h4><a href="" ng-click="addTodo()"><span><i class="fa fa-plus-square" aria-hidden="true"></i></span></a> add a task</h4></div>
 					
-					<ul id="dynamic-list">
-						<li></li>
-					</ul>
+					<!-- list collection of tasks-->
 					<div ng-repeat="task in todos" ng-class="{'edited': task.edited}">
+						
+						<!-- tasks list-->
 						<!--ng-class- when we are editng the class editing-item will be applied-->
 						<div id="ng-todo-list" class="list">
 							<!-- bind completed to the check boc using ng-model-->
@@ -79,10 +83,12 @@
 
 						</div><!--end list-->
 
+						<!--action button groups-->
 						<div id="ng-btn-group" class="actions">
 							<button id="edit" class="ng-btn" ng-click="editing = !editing">edit</button>
-							<button id="save" class="ng-btn" ng-click="">save</button>
-							<button id="delete" class="ng-btn delete" ng-click="">delete</button>
+							<button id="save" class="ng-btn" ng-click="saveTodo(task)">save</button>
+							<!--using ng-repeats local variable, $index, to get index of task in collection-->
+							<button id="delete" class="ng-btn delete" ng-click="deleteTodo(task, $index)">delete</button>
 						</div><!--end actions-->
 						
 						<div class="clearfix"></div>
